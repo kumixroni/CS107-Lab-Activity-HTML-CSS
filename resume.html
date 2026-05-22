@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinnamoroll Portfolio - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --champagne-pink: #ECE0DA;
+      --tea-rose: #F1C8CB;
+      --cherry-blossom: #F6B0BB;
+      --cambridge-blue: #9CAD8C;
+      --reseda-green: #7E8C69;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Fredoka', 'Segoe UI', sans-serif;
+      background-color: var(--champagne-pink);
+      color: var(--reseda-green);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: var(--white);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px dashed var(--tea-rose);
+      z-index: 10;
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cherry-blossom);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo img {
+      width: 35px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--reseda-green);
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover, 
+    .nav-links a.active {
+      background-color: var(--tea-rose);
+      color: var(--white);
+    }
+
+    .resume-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      max-width: 950px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .resume-card {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 4rem 3.5rem;
+      border-radius: 40px;
+      border: 4px solid var(--tea-rose);
+      box-shadow: 0 10px 25px rgba(126, 140, 105, 0.05);
+    }
+
+    .resume-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .resume-header h1 {
+      font-size: 2.6rem;
+      color: var(--cherry-blossom);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-info {
+      font-size: 1.1rem;
+      color: var(--reseda-green);
+      line-height: 1.6;
+    }
+
+    .resume-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      color: var(--cherry-blossom);
+      border-bottom: 3px dashed var(--tea-rose);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .resume-card p, .resume-card li {
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    .resume-card ul {
+      list-style: none;
+    }
+
+    .resume-card li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.8rem;
+    }
+
+    .resume-card li::before {
+      content: "☁️";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1rem;
+    }
+
+    .sub-entry {
+      margin-bottom: 1.5rem;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: var(--reseda-green);
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .entry-sub {
+      font-style: italic;
+      color: var(--cambridge-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .download-section {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 3px dashed var(--tea-rose);
+    }
+
+    .btn-download {
+      display: inline-block;
+      text-decoration: none;
+      background-color: var(--white);
+      color: var(--reseda-green);
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      border: 3px solid var(--reseda-green);
+      transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      background-color: var(--cherry-blossom);
+      border-color: var(--cherry-blossom);
+      color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+      .resume-card {
+        padding: 2.5rem 1.5rem;
+      }
+      .resume-header h1 {
+        font-size: 2rem;
+      }
+      .entry-header {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-logo">
+      <img src="cinnamoroll-logo.jpg" alt="Cinnamoroll">
+      <span>Chris' Portfolio</span>
+    </div>
+    <nav class="nav-links">
+      <a href="homepage.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="resume.html" class="active">Resume</a>
+    </nav>
+  </header>
+
+  <main class="resume-container">
+    <article class="resume-card">
+      
+      <header class="resume-header">
+        <h1>Christian Paulo C. Bernabe</h1>
+        <div class="contact-info">
+          <p>9-O Dream Tower, 150 E. Rodriguez Jr. Ave. Cor Calle Industria, Bagumbayan, Quezon City 1110</p>
+          <p>Contact No.: +63 995 824 6930 | Email: christian.bernabe@ciit.edu.ph | Birthdate: December 24, 2004</p>
+        </div>
+      </header>
+
+      <section class="resume-section">
+        <h2 class="section-title">Objective</h2>
+        <p>Enthusiastic and hardworking individual seeking an entry-level position to gain hands-on experience in the food and beverage industry. Passionate about delivering excellent customer service and contributing to a positive team environment.</p>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Skills</h2>
+        <ul>
+          <li><strong>Customer Service:</strong> Friendly and approachable, with strong communication skills to assist customers and create a welcoming atmosphere.</li>
+          <li><strong>Teamwork:</strong> Cooperative and able to work well in a team environment, supporting colleagues and contributing to team goals.</li>
+          <li><strong>Time Management:</strong> Organized and efficient in managing time, prioritizing tasks, and working under pressure to meet deadlines.</li>
+          <li><strong>Adaptability:</strong> Quick learner who can adapt to new roles and responsibilities, with a willingness to learn and grow.</li>
+          <li><strong>Attention to Detail:</strong> Careful and thorough in completing tasks, ensuring high-quality results and adherence to standards.</li>
+          <li><strong>Basic Math Skills:</strong> Proficient in basic arithmetic, useful for handling cash transactions and operating a register.</li>
+        </ul>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="sub-entry">
+          <div class="entry-header">
+            <span>iAcademy</span>
+            <span>2023 - 2024</span>
+          </div>
+          <p class="entry-sub">iACADEMY Nexus Campus, 7434 Yakal, Makati, 1203 Metro Manila</p>
+        </div>
+
+        <div class="sub-entry">
+          <div class="entry-header">
+            <span>Don Bosco Technical Institute Makati</span>
+            <span>2021 - 2023</span>
+          </div>
+          <p class="entry-sub">Chino Roces Ave, Makati, 1230 Metro Manila</p>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="sub-entry">
+          <div class="entry-header">
+            <span>Service Crew</span>
+            <span>2024 - 2025</span>
+          </div>
+          <p class="entry-sub">Gifted Hands Manpower Services INC. (Assign to: Dunkin' Donut Shangri-La Branch)</p>
+          <p class="entry-sub">Food Forum Shangri-La Plaza, Ortigas Center, Mandaluyong City, Metro Manila</p>
+          <ul>
+            <li>Responsible for providing excellent customer service, taking orders, and preparing food and beverages in a fast-paced environment like a restaurant, cafe, or retail outlet.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2 class="section-title">Hobbies and Interests</h2>
+        <ul>
+          <li><strong>Home Barista/Coffee Brewing:</strong> Enjoy experimenting with different coffee beans and brewing methods to create unique coffee beverages. Passionate about learning the art and science of coffee making.</li>
+          <li><strong>Social Media:</strong> Familiar with various social media platforms, useful for promoting brand awareness and engaging with customers.</li>
+        </ul>
+      </section>
+
+      <section class="download-section">
+        <a href="Resume.png" download="Christian_Bernabe_Resume.png" class="btn-download">Download Resume</a>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>☁️</p>
+  </footer>
+
+</body>
+</html>
