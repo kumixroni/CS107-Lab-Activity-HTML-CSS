@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinnamoroll Portfolio - About Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --champagne-pink: #ECE0DA;
+      --tea-rose: #F1C8CB;
+      --cherry-blossom: #F6B0BB;
+      --cambridge-blue: #9CAD8C;
+      --reseda-green: #7E8C69;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Fredoka', 'Segoe UI', sans-serif;
+      background-color: var(--champagne-pink);
+      color: var(--reseda-green);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: var(--white);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px dashed var(--tea-rose);
+      z-index: 10;
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cherry-blossom);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo img {
+      width: 35px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--reseda-green);
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover, 
+    .nav-links a.active {
+      background-color: var(--tea-rose);
+      color: var(--white);
+    }
+
+    .about-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .about-card {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 3.5rem 3rem;
+      border-radius: 40px;
+      border: 4px solid var(--tea-rose);
+      box-shadow: 0 10px 25px rgba(126, 140, 105, 0.05);
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .bio-section {
+      flex: 1.4;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bio-text {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--reseda-green);
+      font-weight: 400;
+    }
+
+    .bio-divider {
+      border: none;
+      border-top: 3px dashed var(--tea-rose);
+      margin: 2rem 0;
+    }
+
+    .connect-heading {
+      font-size: 1.8rem;
+      color: var(--cherry-blossom);
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .social-links-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      display: inline-block;
+      text-decoration: none;
+      background-color: var(--white);
+      color: var(--reseda-green);
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      border: 2.5px solid var(--reseda-green);
+      transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      background-color: var(--cherry-blossom);
+      border-color: var(--cherry-blossom);
+      color: var(--white);
+    }
+
+    .email-tag {
+      background-color: var(--tea-rose);
+      border-color: var(--tea-rose);
+      color: var(--white);
+      cursor: default;
+    }
+    
+    .email-tag:hover {
+      transform: none;
+      background-color: var(--tea-rose);
+      border-color: var(--tea-rose);
+      color: var(--white);
+    }
+
+    .profile-section {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-circle {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 5px solid var(--tea-rose);
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(246, 176, 187, 0.4);
+    }
+
+    .profile-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-caption {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--cambridge-blue);
+      font-weight: 500;
+    }
+
+    .footer {
+      background-color: var(--reseda-green);
+      color: var(--champagne-pink);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .about-card {
+        flex-direction: column-reverse;
+        gap: 3rem;
+        padding: 2.5rem 1.5rem;
+      }
+      .profile-circle {
+        width: 240px;
+        height: 240px;
+      }
+      .bio-text {
+        font-size: 1.15rem;
+        text-align: center;
+      }
+      .connect-heading {
+        text-align: center;
+      }
+      .social-links-container {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-logo">
+      <img src="cinnamoroll-logo.jpg" alt="Cinnamoroll">
+      <span>Chris' Portfolio</span>
+    </div>
+    <nav class="nav-links">
+      <a href="homepage.html">Home</a>
+      <a href="about.html" class="active">About Me</a>
+      <a href="resume.html">Resume</a>
+    </nav>
+  </header>
+
+  <main class="about-container">
+    <div class="about-card">
+      
+      <section class="bio-section">
+        <p class="bio-text">
+          Hello, my name is Christian Bernabe, but you can call me Chris. I'm 20 years old, and my birthday is on December 24th. I'm a transfer student from iAcademy. I also took Computer Science and majored in Software Engineering. I love my friends and am addicted to coffee and cars.
+        </p>
+        
+        <hr class="bio-divider">
+        
+        <p class="bio-text">
+          I value my friends deeply; they are the collaborators and co-pilots in my life's journey.
+        </p>
+        
+        <hr class="bio-divider">
+        
+        <h2 class="connect-heading">Connect with Me</h2>
+        <div class="social-links-container">
+          <a href="https://www.facebook.com/istianbernabe" target="_blank" class="social-btn">Facebook</a>
+          
+          <a href="https://www.instagram.com/cpcbazta/" target="_blank" class="social-btn">Instagram</a>
+          
+          <span class="social-btn email-tag">christian.bernabe@ciit.edu.ph</span>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <div class="profile-circle">
+          <img src="profile-pic.jpg" alt="Chris' Profile Picture">
+        </div>
+        <p class="profile-caption">☁️☁️☁️</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>☁️ Designed with Effiency and Comfort in mind. ☁️</p>
+  </footer>
+
+</body>
+</html>
